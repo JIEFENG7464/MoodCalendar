@@ -1,0 +1,34 @@
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Android local
+local.properties
+*.iml
+.gradle/
+build/
+app/build/
+.idea/
+.navigation/
+captures/
+.externalNativeBuild/
+
+# Kotlin
+.kotlin/
+
+# Signing
+*.jks
+*.keystore
+keystore.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build logs
+*.log
+
+# Project specific
+.learnings/
+skills/
