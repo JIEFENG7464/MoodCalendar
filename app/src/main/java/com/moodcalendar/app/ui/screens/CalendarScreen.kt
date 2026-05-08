@@ -26,6 +26,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -34,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.moodcalendar.app.R
 import com.moodcalendar.app.data.MoodEntry
 import com.moodcalendar.app.ui.theme.*
 import java.time.LocalDate
@@ -226,6 +229,20 @@ fun CalendarScreen(
                 } else {
                     // ── Scrollable calendar + preview area with floating button ──
                     Box(modifier = Modifier.weight(1f)) {
+                        // Background image - always visible as decoration
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.BottomCenter
+                        ) {
+                            Image(
+                                painter = painterResource(R.drawable.placeholder_bg),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxWidth(0.55f).height(180.dp),
+                                contentScale = ContentScale.Fit,
+                                alpha = 0.55f
+                            )
+                        }
+
                         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                             // Calendar swipe area
                             Box(
